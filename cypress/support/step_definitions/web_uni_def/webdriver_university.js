@@ -1,5 +1,6 @@
 import {Given, When, Then} from "@badeball/cypress-cucumber-preprocessor"
 import "cypress-real-events/support";
+import { web_sel } from "./selector";
 
 
 Given("I navigate to Webdriver University page",()=>{
@@ -7,7 +8,7 @@ Given("I navigate to Webdriver University page",()=>{
 })
 
 When("I click and navigate to {string} section",(sectionName)=>{
-    cy.get(section_id[sectionName]).scrollIntoView().invoke("removeAttr","target").click()
+    cy.get(web_sel.section_id[sectionName]).scrollIntoView().invoke("removeAttr","target").click()
     cy.title().should("eq",section_title[sectionName])
 })
 
@@ -37,7 +38,7 @@ When("I select the {string} from our Products tab in the iframe",(sectionName)=>
         cy.wrap(frameBody).as("iframeProducts")
     })
     cy.get("@iframeProducts").within(()=>
-        cy.get(product_section_name[sectionName]).click()
+        cy.get(web_sel.product_section_name[sectionName]).click()
     )
 })
 
@@ -174,6 +175,7 @@ When("I select {string} in date picker",(dateValue)=>{
 
     selectMonthAndYear()
     cy.get(".day").contains(day).click()
+    cy.screenshot()
 })
 
 Then("I should be able to see the {string} display in date picker",(textValue)=>{
@@ -188,19 +190,4 @@ const section_title = {
     "alertPopup":"WebDriver | Popups & Alerts",
     "fileUpload": "File Upload",
     "datePicker": "WebDriver | Datepicker"
-}
-
-const section_id = {
-    "dataTable": "#data-table",
-    "iframe" : "#iframe",
-    "dropdown": "#dropdown-checkboxes-radiobuttons",
-    "autoCompletedTextfield": "#autocomplete-textfield",
-    "action":"#actions",
-    "alertPopup": "#popup-alerts",
-    "fileUpload": "#file-upload",
-    "datePicker": "#datepicker"
-}
-
-const product_section_name = {
-    "Special Offers": "#container-special-offers"
 }
