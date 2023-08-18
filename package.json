@@ -14,7 +14,7 @@
   "author": "Chloe Wang",
   "license": "ISC",
   "cypress-cucumber-preprocessor": {
-    "stepDefinitions": "cypress/support/step_definitions/*.js",
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js",
     "nonGlobalStepDefinitions": true,
     "omitFiltered": true,
     "filterSpecs": true
