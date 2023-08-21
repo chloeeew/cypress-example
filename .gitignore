@@ -1,3 +1,2 @@
 /node_modules
-/screeshots
-/videos
+cypress/videos

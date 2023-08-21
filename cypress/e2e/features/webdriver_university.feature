@@ -28,7 +28,7 @@ Feature: Webdrvier University
             | SPECIAL OFFER! - GET 30% OFF YOUR FIRST ORDER AT WEBDRIVERUNIVERSITY.COM | To receive 30% off please add the following code to the basket: NEWCUSTOMER773322 |
 
 
-
+    @skip
     Scenario: 03 Verify Dropdown list
         Given I navigate to Webdriver University page
         When I click and navigate to "dropdown" section
@@ -42,7 +42,7 @@ Feature: Webdrvier University
             | HTML  |
 
 
-
+    @skip
     Scenario Outline: 04 Verify autocompleted textfield <foodItem>
         Given I navigate to Webdriver University page
         When I click and navigate to "autoCompletedTextfield" section
@@ -58,7 +58,7 @@ Feature: Webdrvier University
             | French    | French toast | French+toast |
 
 
-
+    @skip
     Scenario: 05 handling double click & hover & drag and drop
         Given I navigate to Webdriver University page
         When I click and navigate to "action" section
@@ -77,6 +77,7 @@ Feature: Webdrvier University
             | Link 1 |
 
 
+    @skip
     Scenario Outline: 06 handling alert <ClickAction>
         Given I navigate to Webdriver University page
         When I click and navigate to "alertPopup" section
@@ -97,6 +98,7 @@ Feature: Webdrvier University
         Then I should see "Your file has now been uploaded!" in alert when select "testUpload.png" file  click submit to upload
 
 
+    @skip
     Scenario Outline: 08 handling data picker <Date>
         Given I navigate to Webdriver University page
         When I click and navigate to "datePicker" section

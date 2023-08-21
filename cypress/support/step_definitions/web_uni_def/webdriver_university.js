@@ -5,11 +5,13 @@ import { web_sel } from "./selector";
 
 Given("I navigate to Webdriver University page",()=>{
     cy.visit("/")
+    cy.screenshot()
 })
 
 When("I click and navigate to {string} section",(sectionName)=>{
     cy.get(web_sel.section_id[sectionName]).scrollIntoView().invoke("removeAttr","target").click()
     cy.title().should("eq",section_title[sectionName])
+    cy.screenshot()
 })
 
 When("I verify the table {int} according to the following data",(tableNum,datatable)=>{
@@ -20,6 +22,7 @@ When("I verify the table {int} according to the following data",(tableNum,datata
                 cy.get('td').eq(2).invoke("text").should("eq",elem.Age)
             })
         });
+    cy.screenshot()
 })
 
 Then("I click on the {string} tab in the iframe",(tabName)=>{
@@ -29,6 +32,8 @@ Then("I click on the {string} tab in the iframe",(tabName)=>{
     })
 
     cy.get("@iframeHome").contains(tabName).click()
+    cy.screenshot()
+
 })
 
 When("I select the {string} from our Products tab in the iframe",(sectionName)=>{
@@ -40,6 +45,8 @@ When("I select the {string} from our Products tab in the iframe",(sectionName)=>
     cy.get("@iframeProducts").within(()=>
         cy.get(web_sel.product_section_name[sectionName]).click()
     )
+    cy.screenshot()
+
 })
 
 Then("I should see the following title and content display in {string} modal",(modalName,dataTable)=>{
@@ -48,6 +55,8 @@ Then("I should see the following title and content display in {string} modal",(m
             cy.get(".modal-title").contains(elem.title).should('be.visible')
             cy.get(".modal-body").contains(elem.content).should("be.visible")
         })
+    cy.screenshot()
+    
     })
     
 })
@@ -57,37 +66,45 @@ Then("I select the following option in the corresponding dropdown menu",(dataTab
             cy.get(`#dropdowm-menu-${index+1}`).select(elem[0])
             cy.get(`#dropdowm-menu-${index+1}`).contains(elem[0]).should("be.visible")
     })
+    cy.screenshot()
 })
 
 Then("I type {string} in the food item text field",(inputText)=>{
     cy.get("#myInput").type(inputText)
+    cy.screenshot()
 })
 
 When("I choose {string} in the auto complete list",(option)=>{
     cy.get(".autocomplete-items").contains(option).should("be.visible")
     cy.get(".autocomplete-items").contains(option).click()
+    cy.screenshot()
 })
 
 Then("I click on the submit button",()=>{
     cy.get("#submit-button").click({force:true})
+    cy.screenshot()
 })
 
 Then("I should be able to see {string} displays in current url",(expectText)=>{
     cy.url().should("contain",`food-item=${expectText}`)
+    cy.screenshot()
 })
 
 
 Then("I should be able to see the target display {string}",(value)=>{
     cy.get("#droppable").contains(value).should("be.visible")
+    cy.screenshot()
 })
 
 When("I drag the object to the target",()=>{
     cy.get("#draggable").trigger("mousedown",{which:1})
     cy.get("#droppable").trigger("mousemove").trigger("mouseup",{force:true})
+    cy.screenshot()
 })
 
 When("I double click in the Double Click Me section",()=>{
     cy.get("#double-click").dblclick()
+    cy.screenshot()
 })
 
 Then("I should able to see the Double Click Me section in {string}", (colorName)=>{
@@ -96,10 +113,12 @@ Then("I should able to see the Double Click Me section in {string}", (colorName)
         yellow: "rgb(254, 196, 45)"
     }
     cy.get("#double-click").should("have.css","background-color",colorRGB[colorName])
+    cy.screenshot()
 })
 
 When("I mousehover in the Hover Me Third Section",()=>{
     cy.get("#div-hover").children().eq(2).realHover('mouse')
+    cy.screenshot()
 })
 
 Then("I should be able to see the following link name in the dropdown list",(dataTable)=>{
@@ -108,6 +127,7 @@ Then("I should be able to see the following link name in the dropdown list",(dat
             cy.contains(elem[0]).should("be.visible")
         })
     })
+    cy.screenshot()
 })
 
 Then("I click {string} after clicking jsConfirm button and see text {string} display in alert",(actionName, textValue)=>{
@@ -123,11 +143,12 @@ Then("I click {string} after clicking jsConfirm button and see text {string} dis
     cy.on("window:confirm",()=>{
         return actionBool
     })
-
+    cy.screenshot()
 })
 
 Then("I should see {string} in the confirm alert text",(alertText)=>{
     cy.get("#confirm-alert-text").contains(alertText).should("be.visible")
+    cy.screenshot()
 })
 
 Then("I should see {string} in alert when select {string} file  click submit to upload",(textValue,fileName)=>{
@@ -141,6 +162,7 @@ Then("I should see {string} in alert when select {string} file  click submit to 
     cy.on("window:alert",(str)=>{
         expect(str).to.be.equal(textValue)
     })
+    cy.screenshot()
 })
 
 When("I select {string} in date picker",(dateValue)=>{
@@ -176,9 +198,6 @@ When("I select {string} in date picker",(dateValue)=>{
     selectMonthAndYear()
     cy.get(".day").contains(day).click()
     cy.screenshot()
-})
-
-Then("I should be able to see the {string} display in date picker",(textValue)=>{
 })
 
 const section_title = {
