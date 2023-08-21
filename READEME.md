@@ -8,3 +8,5 @@
 `npx cypress run -env "tags=@store"`
 ## Generate html report 
 `node util\htmlreportGenerate.js`
+- customize script
+`npm run generateHtmlReport`

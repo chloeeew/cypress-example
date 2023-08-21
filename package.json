@@ -11,7 +11,7 @@
     "cypress-real-events": "^1.9.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generateHtmlReport": "node util/htmlreportGenerate.js"
   },
   "author": "Chloe Wang",
   "license": "ISC",
