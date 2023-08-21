@@ -34,6 +34,8 @@ module.exports = defineConfig({
     requestTimeout: 10000,
     responseTimeout: 15000,
     defaultCommandTimeout: 10000,
+    trashAssetsBeforeRuns: true,
+    screenshotOnRunFailure: true,
     specPattern: "**/*.feature",
     supportFile: false,
     omitFiltered: true,
