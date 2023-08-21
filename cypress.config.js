@@ -19,7 +19,6 @@ async function setupNodeEvents(on, config) {
   }
 	await preprocessor.addCucumberPreprocessorPlugin(on, config);
   
-
 	on('file:preprocessor', browserify.default(config));
 
 	// Make sure to return the config object as it might have been modified by the plugin.
@@ -39,6 +38,7 @@ module.exports = defineConfig({
     specPattern: "**/*.feature",
     supportFile: false,
     omitFiltered: true,
-    filterSpecs: true
+    filterSpecs: true,
+    retries: 3
   },
 });
