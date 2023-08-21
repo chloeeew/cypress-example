@@ -6,8 +6,6 @@ const createEsbuildPlugin =
 require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
 
-
-
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {

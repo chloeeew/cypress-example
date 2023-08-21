@@ -1,7 +1,7 @@
 @university
 Feature: Webdrvier University
 
-    @skip
+
     Scenario: 01 Verify data table
         Given I navigate to Webdriver University page
         When I click and navigate to "dataTable" section
@@ -17,7 +17,7 @@ Feature: Webdrvier University
             | Bob       | Woods    | 80  |
 
 
-    @skip
+
     Scenario: 02 handling Ifame and verify modal
         Given I navigate to Webdriver University page
         When I click and navigate to "iframe" section
@@ -28,7 +28,7 @@ Feature: Webdrvier University
             | SPECIAL OFFER! - GET 30% OFF YOUR FIRST ORDER AT WEBDRIVERUNIVERSITY.COM | To receive 30% off please add the following code to the basket: NEWCUSTOMER773322 |
 
 
-    @skip
+
     Scenario: 03 Verify Dropdown list
         Given I navigate to Webdriver University page
         When I click and navigate to "dropdown" section
@@ -42,7 +42,7 @@ Feature: Webdrvier University
             | HTML  |
 
 
-    @skip
+
     Scenario Outline: 04 Verify autocompleted textfield <foodItem>
         Given I navigate to Webdriver University page
         When I click and navigate to "autoCompletedTextfield" section
@@ -58,7 +58,7 @@ Feature: Webdrvier University
             | French    | French toast | French+toast |
 
 
-    @skip
+
     Scenario: 05 handling double click & hover & drag and drop
         Given I navigate to Webdriver University page
         When I click and navigate to "action" section
@@ -76,7 +76,7 @@ Feature: Webdrvier University
             | Link 1 |
             | Link 1 |
 
-    @skip
+
     Scenario Outline: 06 handling alert <ClickAction>
         Given I navigate to Webdriver University page
         When I click and navigate to "alertPopup" section
@@ -89,7 +89,7 @@ Feature: Webdrvier University
             | cancel      | You pressed Cancel! |
 
 
-    @skip
+
     Scenario: 07 handling file upload
         Given I navigate to Webdriver University page
         When I click and navigate to "fileUpload" section

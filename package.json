@@ -17,7 +17,11 @@
     "stepDefinitions": "cypress/support/step_definitions/**/*.js",
     "nonGlobalStepDefinitions": true,
     "omitFiltered": true,
-    "filterSpecs": true
+    "filterSpecs": true,
+    "html": {
+      "enabled": true,
+      "output": "path/report.html"
+    }
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.1",
