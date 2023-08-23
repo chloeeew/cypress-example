@@ -172,33 +172,31 @@ When("I select {string} in date picker",(dateValue)=>{
     const day = dateNew.getDate()
     
     cy.get(".input-group-addon").click()
-    
-    
-    function selectMonthAndYear(){
-        cy.get(".datepicker-switch").first().then((str)=>{
-            let a = new Date(str.text())
-            let currentYear = a.getFullYear()
-            let currentMonth = a.getMonth() + 1 
-            if (currentYear < year){
-                cy.get(".next").first().click()
-                selectMonthAndYear()
-            }else if (currentYear > year){
-                cy.get(".prev").first().click()
-                selectMonthAndYear()
-            }else if(currentMonth<month){
-                cy.get(".next").first().click()
-                selectMonthAndYear()
-            }else if (currentMonth > month){
-                cy.get(".prev").first().click()
-                selectMonthAndYear()
-            }
-    })
-    }
-
     selectMonthAndYear()
     cy.get(".day").contains(day).click()
     cy.screenshot()
 })
+
+function selectMonthAndYear(){
+    cy.get(".datepicker-switch").first().then((str)=>{
+        let a = new Date(str.text())
+        let currentYear = a.getFullYear()
+        let currentMonth = a.getMonth() + 1 
+        if (currentYear < year){
+            cy.get(".next").first().click()
+            selectMonthAndYear()
+        }else if (currentYear > year){
+            cy.get(".prev").first().click()
+            selectMonthAndYear()
+        }else if(currentMonth<month){
+            cy.get(".next").first().click()
+            selectMonthAndYear()
+        }else if (currentMonth > month){
+            cy.get(".prev").first().click()
+            selectMonthAndYear()
+        }
+})
+}
 
 const section_title = {
     "dataTable": "WebDriver | Data Tables",

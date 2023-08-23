@@ -13,9 +13,9 @@
   "scripts": {
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
     "triggerWebUniTests-chrome": "npx cypress run --env \"tags=@university,configFile=university\" --browser chrome",
-    "triggerStoreTest-chrome": "npx cypress run --env \"tags=@store,configFile=store\" --browser chrome",
+    "triggerStoreTest-chrome": "npx cypress run --env \"tags=@Store,configFile=store\" --browser chrome --headed",
     "generateHtmlReport": "node util/htmlreportGenerate.js",
-    "triggerAllTests-allBrowsers": "npx cypress run --browser chrome --headed && npx cypress run --browser firefox--headed && npx cypress run --browser edge--headed && npx cypress run --browser electron--headed"
+    "triggerAllTests-allBrowsers": "npx cypress run --browser chrome --headed && npx cypress run --browser firefox--headed && npx cypress run --browser edge --headed && npx cypress run --browser electron--headed"
   },
   "author": "Chloe Wang",
   "license": "ISC",

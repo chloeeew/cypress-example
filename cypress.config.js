@@ -15,6 +15,7 @@ async function setupNodeEvents(on, config) {
   const environmentFileName = `./cypress/config/cypress_${file}.json`
   const envConfig = require(environmentFileName)
   if(envConfig.baseUrl){
+    console.log("envConfig.baseUrl: ", envConfig.baseUrl)
     config.baseUrl = envConfig.baseUrl
   }
 	await preprocessor.addCucumberPreprocessorPlugin(on, config);
@@ -29,7 +30,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents,
     baseUrl: "https://automationteststore.com/",
-    pageLoadTimeout: 10000,
+    pageLoadTimeout: 15000,
     requestTimeout: 10000,
     responseTimeout: 15000,
     defaultCommandTimeout: 10000,
