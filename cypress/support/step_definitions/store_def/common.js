@@ -5,16 +5,19 @@ When("I select {string} in the navigation bar",(barName)=>{
         cy.contains(barName).should("be.visible")
         cy.contains(barName).click()
     })
+    cy.screenshot()
 })
 
 Then("I should be able to see {string} in the navigation bar",(elementName)=>{
     cy.get('[role="navigation"]').within(()=>{
         cy.contains(elementName).should("be.visible")
     })
+    cy.screenshot()
 })
 
 When("I click on {string} Button",(buttonName)=>{
     cy.get("button").filter('[title="'+buttonName+'"]').click();
+    cy.screenshot()
 })
 
 

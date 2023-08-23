@@ -5,6 +5,7 @@ let skisheenPriceMockData = require("../../../fixtures/mockData/skinsheenPriceMo
 
 Given("I am in Automation Test Store homepage",()=>{
     cy.visit("/");
+    cy.screenshot()
 })
 
 When("I click on {string} in MAKEUP toolbar dropdown list",(elementName)=>{
@@ -12,6 +13,7 @@ When("I click on {string} in MAKEUP toolbar dropdown list",(elementName)=>{
     cy.get("nav > ul > li").eq(2).within(()=>{
         cy.contains(elementName).click();
     })
+    cy.screenshot()
 })
 
 When("I mock the price of {string} to {string}",(productName,price)=>{
@@ -25,11 +27,13 @@ When("I mock the price of {string} to {string}",(productName,price)=>{
 
 Then("I click on {string} in the product table",(productName)=>{
     cy.contains(productName).parent().parent().parent().click();
+    cy.screenshot()
 })
 
 Then("I should see {string} in the product total price of {string} details page",(price,productName)=>{
     cy.get(".productname > span").contains(productName).parent().parent().within(()=>{
         cy.get(".total-price").should("contain.text",price)
     })                                    
+    cy.screenshot()
 })
 
