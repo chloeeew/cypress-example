@@ -16,4 +16,8 @@ Then("I should be able to see {string} in the navigation bar",(elementName)=>{
 When("I click on {string} Button",(buttonName)=>{
     cy.get("button").filter('[title="'+buttonName+'"]').click();
 })
-    
+
+
+export function mockAPIResponseWithAlias(method,url,response,alias){
+    cy.intercept(method,url,response).as(alias)
+}
