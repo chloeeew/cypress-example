@@ -14,8 +14,8 @@
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
     "triggerWebUniTests-chrome": "npx cypress run --env \"tags=@university,configFile=university\" --browser chrome --headed",
     "triggerStoreTest-chrome": "npx cypress run --env \"tags=@Store,configFile=store\" --browser chrome --headed",
-    "triggerWebUniTest-headless-chrome": "npx cypress run --env \"tags=@university,configFile=university\" --browser chrome",
-    "triggerStoreTest-headless-chrome": "npx cypress run --env \"tags=@Store,configFile=store\" --browser chrome",
+    "triggerWebUniTest-headless": "npx cypress run --env \"tags=@university,configFile=university\"",
+    "triggerStoreTest-headless": "npx cypress run --env \"tags=@Store,configFile=store\"",
     "generateHtmlReport": "node util/htmlreportGenerate.js",
     "triggerAllTests-allBrowsers": "npx cypress run --browser chrome --headed && npx cypress run --browser firefox--headed && npx cypress run --browser edge --headed && npx cypress run --browser electron--headed"
   },
