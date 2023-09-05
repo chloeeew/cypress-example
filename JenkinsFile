@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'Environment', choices: ['WebdriverUniversity', 'AutomationStore'], description: 'Select the Environment to run')
+    }
+
+    options {
+        ansiColor('xterm')
+    }
+
+    tools {
+        nodejs "latest"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                script {
+                    if (Environment == 'WebdriverUniversity') {
+                        sh 'npm run triggerWebUniTest-headless'
+                    } else if (Environment == 'AutomationStore') {
+                        sh 'npm run triggerStoreTest-headless'
+                    }
+                }
+                
+            }
+        }
+        stage('Generate Report') {
+            steps {
+                sh 'node util\\htmlreportGenerate.js'
+            }
+        }
+    }
+}
