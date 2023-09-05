@@ -151,7 +151,7 @@ Then("I should see {string} in the confirm alert text",(alertText)=>{
     cy.screenshot()
 })
 
-Then("I should see {string} in alert when select {string} file  click submit to upload",(textValue,fileName)=>{
+Then("I should see {string} in alert when select {string} file click submit to upload",(textValue,fileName)=>{
     if(fileName){
         let filePath = `cypress\\fixtures\\${fileName}`
         cy.get("#myFile").selectFile(filePath)

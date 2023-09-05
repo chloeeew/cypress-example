@@ -94,8 +94,8 @@ Feature: Webdrvier University
     Scenario: 07 handling file upload
         Given I navigate to Webdriver University page
         When I click and navigate to "fileUpload" section
-        Then I should see "You need to select a file to upload!" in alert when select "" file  click submit to upload
-        Then I should see "Your file has now been uploaded!" in alert when select "testUpload.png" file  click submit to upload
+        Then I should see "You need to select a file to upload!" in alert when select "" file click submit to upload
+        Then I should see "Your file has now been uploaded!" in alert when select "testUpload.png" file click submit to upload
 
 
     @skip
